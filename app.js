@@ -6,9 +6,13 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-//Pathways to output and to output/team.html
+//Pathways to files in folder
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
+const outputPathStylesheet = path.join(OUTPUT_DIR, "styles.css");
+
+//Stylesheet to add in output
+const cssStyleSheet = fs.readFileSync(path.resolve(__dirname, "templates/styles.css"), "utf8");
 
 //Rendering html file
 const render = require("./lib/htmlRenderer");
@@ -155,6 +159,9 @@ function createHtmlFile(htmlData) {
         });
     } else {
         fs.writeFile(outputPath, htmlData, (err) => {
+            if(err) console.error(`There was an error: ${err}`);
+        });
+        fs.writeFile(outputPathStylesheet, cssStyleSheet, (err) => {
             if(err) console.error(`There was an error: ${err}`);
         });
     }

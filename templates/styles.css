@@ -1,0 +1,40 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1528460033278-a6ba57020470?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=675&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*Top Title*/
+h1 {
+    color: #272343; 
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 4em;
+}
+
+hr {
+    border: 5px solid #272343; 
+}
+
+.team-heading {
+    background-color: #bae8e8;
+}
+
+.container {
+    background-color: rgba(255,255,255, 0.8);;
+    border-radius: 5px;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+
+.employee-card {
+    min-width: 18em;
+}
+
+.employee-card .card-header {
+    background-color: #e3f6f5;
+}
