@@ -13,6 +13,85 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+const employees = [];
+
+const managerPrompts = [`Hello, manager! Please enter in your name:`, `Please enter in your id:`, `Please enter in your email:`, `Please enter in your office number:`];
+const employeeGenericPrompts = [`Please enter in your name:`, `Please enter in your id:`, `Please enter in your email:`, `Please enter in your office number:`]
+
+//First inquire about Manager
+function managerInformation() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: managerPrompts[0],
+                name: 'name'
+            },
+            {
+                type: 'input',
+                message: managerPrompts[1],
+                name: 'id'
+            },
+            {
+                type: 'input',
+                message: managerPrompts[2],
+                name: 'email'
+            },
+            {
+                type: 'input',
+                message: managerPrompts[3],
+                name: 'officeNumber'
+            },
+        ])
+        .then((response) => {
+            let managerInfo = new Manager(response.name, response.id, response.email, response.officeNumber);
+            employees.push(managerInfo);
+            addEmployee();
+        });
+}
+
+managerInformation();
+
+//Then inquire about Team Members
+function addEmployee() {
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                message: `Which type of team member would you like to add?`,
+                name: 'Role',
+                choices: [
+                    'Engineer',
+                    'Intern',
+                    'There are no more employees to be added'
+                ]
+            }
+        ])
+        .then((response) => {
+            if(response.Role === 'There are no more employees to be added') {
+                //ADD FUNCTION LATER TO RENDER HTML PAGE!!!!!!!!!!!!
+                console.log('Done', employees)
+            } else {
+                employeeInformation(response.Role);
+            };
+        });
+};
+
+/*
+//Receive team member information
+function employeeInformation(role) {
+    switch (role){
+
+    }
+
+    inquirer
+        .prompt([
+
+        ])
+
+
+};
+*/
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
