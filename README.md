@@ -47,7 +47,7 @@ Please see the following instructions on how to use this application: <br>
 <br>
 
 ## Questions?
-Feel free to check out my github profile [here](https://github.com/test)!
+Feel free to check out my github profile [here](https://github.com/Christina2021)!
 Should you have any questions, you may reach me by e-mail at: <a href="mailto:codechristina2021@gmail.com?subject=Hi,%20Christina!">codechristina2021@gmail.com</a>!.
 
 ## License
